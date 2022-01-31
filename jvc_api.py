@@ -116,7 +116,8 @@ class JVC:
                 if "data-id" in element.attrs:
                     element_html = HTML(html=element.html)
                     title_element = element_html.find(".topic-title", first=True)
-                    if(title_element != None):
+                    pin_element = element_html.find(".icon-topic-pin")
+                    if(title_element != None and len(pin_element) == 0):
                         title = title_element.text
                         author = element_html.find(".topic-author", first=True).text
                         url = next(iter(element_html.find(".lien-jv", first=True).links))
